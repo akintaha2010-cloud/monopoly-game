@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monopoly</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section id="setup" class="setup">
+    <h1>Monopoly</h1>
+    <p>2–4 oyuncu, aynı bilgisayarda sırayla.</p>
+    <div id="player-inputs"></div>
+    <div class="row">
+      <button id="add-player" type="button">+ Oyuncu ekle</button>
+      <button id="start" type="button" class="primary">Oyunu başlat</button>
+    </div>
+  </section>
+
+  <main id="game" class="game hidden">
+    <div id="board" class="board">
+      <div class="center">
+        <h2 class="logo">MONOPOLY</h2>
+        <div id="dice" class="dice"><span>?</span><span>?</span></div>
+        <div id="turn" class="turn"></div>
+        <div id="card" class="card hidden"></div>
+        <div id="actions" class="actions"></div>
+      </div>
+    </div>
+    <aside class="side">
+      <div id="players"></div>
+      <h3>Mülklerim</h3>
+      <div id="my-props" class="my-props"></div>
+      <h3>Olaylar</h3>
+      <ol id="log" class="log"></ol>
+    </aside>
+  </main>
+
+  <script type="module" src="js/ui.js"></script>
+</body>
+</html>

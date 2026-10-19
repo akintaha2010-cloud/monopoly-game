@@ -1,0 +1,53 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #e9f1ea; color: #1d1d1d; }
+button { font: inherit; padding: 6px 12px; border: 1px solid #555; border-radius: 6px; background: #fff; cursor: pointer; }
+button:disabled { opacity: .4; cursor: not-allowed; }
+button.primary { background: #198754; color: #fff; border-color: #146c43; }
+.hidden { display: none !important; }
+.row { display: flex; gap: 8px; margin-top: 12px; }
+
+.setup { max-width: 420px; margin: 60px auto; background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px #0002; }
+.setup .player-input { display: flex; gap: 8px; margin: 6px 0; }
+.setup input[type=text] { flex: 1; padding: 6px; }
+
+.game { display: flex; gap: 16px; padding: 16px; align-items: flex-start; }
+.board {
+  --cell: min(8.2vh, 6.2vw);
+  display: grid; position: relative;
+  grid-template-columns: calc(var(--cell) * 1.6) repeat(9, var(--cell)) calc(var(--cell) * 1.6);
+  grid-template-rows: calc(var(--cell) * 1.6) repeat(9, var(--cell)) calc(var(--cell) * 1.6);
+  background: #cde6d0; border: 2px solid #222;
+}
+.space { border: 1px solid #333; background: #fbfbf4; position: relative; font-size: 9px; line-height: 1.1;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; overflow: hidden; padding: 1px; }
+.space .bar { width: 100%; height: 22%; flex: none; }
+.space .name { font-weight: 600; padding: 1px; }
+.space .price { color: #444; }
+.space.corner { font-size: 11px; font-weight: 700; justify-content: center; }
+.space.mortgaged { background: repeating-linear-gradient(45deg, #fbfbf4, #fbfbf4 4px, #ddd 4px, #ddd 8px); }
+.space .owner { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; }
+.space .houses { font-size: 10px; color: #146c43; letter-spacing: -1px; }
+.tokens { display: flex; flex-wrap: wrap; gap: 2px; justify-content: center; }
+.token { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #000; }
+
+.center { grid-column: 2 / 11; grid-row: 2 / 11; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 12px; }
+.logo { margin: 0; font-size: calc(var(--cell) * .7); color: #c0392b; letter-spacing: 4px; transform: rotate(-12deg); text-shadow: 2px 2px #fff; }
+.dice { display: flex; gap: 10px; }
+.dice span { width: 44px; height: 44px; background: #fff; border: 2px solid #222; border-radius: 8px; display: grid; place-items: center; font-size: 22px; font-weight: 700; }
+.turn { font-weight: 700; font-size: 18px; }
+.card { background: #fff8d6; border: 2px solid #b8860b; border-radius: 8px; padding: 8px 12px; max-width: 320px; text-align: center; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+
+.side { width: 340px; flex: none; }
+.player { background: #fff; border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; border-left: 8px solid; }
+.player.active { outline: 3px solid #198754; }
+.player.bankrupt { opacity: .4; text-decoration: line-through; }
+.player .money { float: right; font-weight: 700; }
+.player .money.neg { color: #dc3545; }
+.my-props { display: flex; flex-direction: column; gap: 4px; max-height: 240px; overflow: auto; }
+.prop-row { display: flex; align-items: center; gap: 4px; background: #fff; border-radius: 6px; padding: 3px 6px; font-size: 12px; }
+.prop-row .swatch { width: 10px; height: 18px; border-radius: 2px; flex: none; }
+.prop-row .label { flex: 1; }
+.prop-row button { padding: 2px 6px; font-size: 11px; }
+.log { background: #fff; border-radius: 8px; height: 220px; overflow: auto; font-size: 12px; margin: 0; padding: 8px 8px 8px 28px; }
+.winner { font-size: 22px; font-weight: 700; color: #198754; }
