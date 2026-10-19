@@ -354,6 +354,7 @@ export class Game {
   }
 
   nextPlayer() {
+    this.lastCard = null;
     this.doubles = 0;
     this.extraTurn = false;
     do { this.current = (this.current + 1) % this.players.length; } while (this.player.bankrupt);
