@@ -2,6 +2,10 @@
 
 Tarayıcıda çalışan, 2–4 kişilik (aynı bilgisayarda sırayla) Monopoly oyunu. Saf HTML/CSS/JavaScript, derleme adımı yok.
 
+**[Hemen oyna](https://akintaha2010-cloud.github.io/monopoly-game/)**: kurulum yok, tarayıcıda açılır.
+
+![Oyun ekranı](docs/screenshot.png)
+
 ## Özellikler
 
 - 40 karelik klasik tahta, 8 renk grubu, 4 demiryolu, 2 idare
