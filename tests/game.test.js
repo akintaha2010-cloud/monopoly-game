@@ -101,3 +101,30 @@ test("debt blocks end of turn; bankruptcy transfers assets and ends game", () =>
   assert.equal(g.winner.name, "P2");
   assert.equal(g.props[1].owner, 1);
 });
+
+test("collect-from-each and pay-each cards move money between players", () => {
+  const g = newGame(3);
+  g.decks.chance = [{ text: "topla", action: "collectEach", amount: 10 }, { text: "öde", action: "payEach", amount: 25 }];
+  g.drawCard("chance");
+  assert.equal(g.players[0].money, START_MONEY + 20);
+  assert.equal(g.players[1].money, START_MONEY - 10);
+  g.drawCard("chance");
+  assert.equal(g.players[0].money, START_MONEY + 20 - 50);
+  assert.equal(g.players[2].money, START_MONEY - 10 + 25);
+});
+
+test("repairs card charges per house and per hotel", () => {
+  const g = newGame();
+  g.props[1] = { owner: 0, houses: 2, mortgaged: false };
+  g.props[3] = { owner: 0, houses: 5, mortgaged: false };
+  g.decks.chest = [{ text: "tamir", action: "repairs", house: 40, hotel: 115 }];
+  g.drawCard("chest");
+  assert.equal(g.players[0].money, START_MONEY - 2 * 40 - 115);
+});
+
+test("net worth counts cash, property value, houses and mortgages", () => {
+  const g = newGame();
+  g.props[1] = { owner: 0, houses: 1, mortgaged: false };
+  g.props[3] = { owner: 0, houses: 0, mortgaged: true };
+  assert.equal(g.netWorth(g.players[0]), START_MONEY + 60 + 50 + 30);
+});
